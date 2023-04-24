@@ -1,4 +1,4 @@
-@extends('admin.auth.layout.app')
+@extends('user.auth.layout.app')
 @section('title')Admin | Forget Password @endsection
 
 
@@ -17,8 +17,8 @@
                     </div>
                     <!-- /Logo -->
                    
-                    @include('admin.layout.alert')
-                    <form id="formAuthentication" class="mb-3" action="{{ route('admin.password.email') }}" method="POST">
+                    @include('user.layout.alert')
+                    <form id="formAuthentication" class="mb-3" action="{{ route('user.password.email') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>

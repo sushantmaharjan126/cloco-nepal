@@ -21,6 +21,7 @@ return new class extends Migration
             $table->dateTime('dob')->nullable()->dufault(null);
             $table->enum('gender', ['M', 'F', 'O'])->dufault('M');
             $table->string('address')->nullable()->dufault(null);
+            $table->enum('status', ['Active', 'Inactive'])->dufault('Active');
             $table->timestamps();
         });
     }

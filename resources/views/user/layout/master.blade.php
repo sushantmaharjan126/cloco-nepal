@@ -49,14 +49,14 @@
     <div class="layout-container">
       <!-- Menu -->
 
-      @include('admin.layout.aside')
+      @include('user.layout.aside')
       <!-- / Menu -->
 
       <!-- Layout container -->
       <div class="layout-page">
         <!-- Navbar -->
 
-        @include('admin.layout.navbar')
+        @include('user.layout.navbar')
 
         <!-- / Navbar -->
 

@@ -1,4 +1,4 @@
-@if ($message = Session::get('success'))
+@if ($message = Session::get('success_message'))
 <div class="alert alert-success alert-dismissible" id="alert-dismissible" role="alert">
     <button type="button" class="close" aria-label="Close" data-dismiss="alert">
         <span aria-hidden="true">×</span>
@@ -16,7 +16,7 @@
 </div>
 @endif
 
-@if ($message = Session::get('error'))
+@if ($message = Session::get('error_message'))
 <div class="alert alert-danger alert-dismissible" id="alert-dismissible" role="alert">
     <button type="button" class="close" aria-label="Close" data-dismiss="alert">
         <span aria-hidden="true">×</span>

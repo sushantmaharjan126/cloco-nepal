@@ -22,8 +22,8 @@ Route::get('user/login', [LoginController::class, 'showLoginForm'])->name('user.
 Route::post('user/login', [LoginController::class, 'login'])->name('user.login.submit');
 
 
-Route::get('user/login', [RegisterController::class, 'showForm'])->name('user.register');
-Route::post('user/login', [RegisterController::class, 'register'])->name('user.register.submit');
+Route::get('user/register', [RegisterController::class, 'showForm'])->name('user.register');
+Route::post('user/register', [RegisterController::class, 'register'])->name('user.register.submit');
 
 
 Route::get('user/password/reset', [ForgetPasswordController::class, 'showLinkRequestForm'])->name('user.password.request');

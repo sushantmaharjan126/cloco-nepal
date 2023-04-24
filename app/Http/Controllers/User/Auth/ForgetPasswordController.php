@@ -11,24 +11,24 @@ class ForgetPasswordController extends Controller
 {
     protected function guard()
     {
-        return Auth::guard('admin');
+        return Auth::guard('web');
     }
 
     protected function broker()
     {
-        return Password::broker('admins');
+        return Password::broker('users');
     }
 
     public function showLinkRequestForm()
     {
-        return view('admin.auth.forget-password');
+        return view('user.auth.forget-password');
     }
 
     public function sendResetLinkEmail(Request $request)
     {
-        $request->validate(['email' => 'required|email|exists:admins']);
+        $request->validate(['email' => 'required|email|exists:users']);
 
-        $status = Password::broker('admins')->sendResetLink(
+        $status = Password::broker('users')->sendResetLink(
             $request->only('email')
         );
 
