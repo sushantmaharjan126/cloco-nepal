@@ -6,6 +6,7 @@ use App\Http\Controllers\User\Auth\RegisterController;
 use App\Http\Controllers\User\Auth\ForgetPasswordController;
 use App\Http\Controllers\User\Auth\ResetPasswordController;
 use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,15 @@ Route::prefix('user')->middleware(['auth:web'])->name('user.')->group(function (
 
 	Route::get('/', [DashboardController::class, 'index']);
 	Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+	Route::get('/users', [UserController::class, 'index'])->name('users.get');
+	Route::get('/users/create/', [UserController::class, 'create'])->name('users.create');
+	Route::post('/users/store/', [UserController::class, 'store'])->name('users.store');
+	Route::get('/users/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
+	Route::post('/users/update/{user}', [UserController::class, 'update'])->name('users.update');
+	Route::get('/users/destory/{user}', [UserController::class, 'destory'])->name('users.destory');
+
+
 
 
 });

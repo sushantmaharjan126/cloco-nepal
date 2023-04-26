@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('phone')->nullable()->dufault(null);
-            $table->dateTime('dob')->nullable()->dufault(null);
+            $table->date('dob')->nullable()->dufault(null);
             $table->enum('gender', ['M', 'F', 'O'])->dufault('M');
             $table->string('address')->nullable()->dufault(null);
             $table->enum('status', ['Active', 'Inactive'])->dufault('Active');

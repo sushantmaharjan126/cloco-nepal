@@ -7,7 +7,7 @@
 </div>
 @endif
 
-@if ($message = Session::get('status'))
+@if ($message = Session::get('status_message'))
 <div class="alert alert-success alert-dismissible" id="alert-dismissible" role="alert">
     <button type="button" class="close" aria-label="Close" data-dismiss="alert">
         <span aria-hidden="true">×</span>
@@ -25,7 +25,7 @@
 </div>
 @endif
 
-@if ($errors->any())
+{{-- @if ($errors->any())
 <div class="alert alert-danger alert-dismissible" id="alert-dismissible" role="alert">
     <button type="button" class="close" aria-label="Close" data-dismiss="alert">
         <span aria-hidden="true">×</span>
@@ -36,7 +36,7 @@
         @endforeach
 
     </div>
-@endif
+@endif --}}
 
 <script>
     setTimeout(function () {

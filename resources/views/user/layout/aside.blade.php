@@ -13,7 +13,7 @@
 
     <ul class="menu-inner py-1">
       <!-- Dashboard -->
-      <li class="menu-item active">
+      <li class="menu-item <?php if(Request::segment(2) == '') { echo 'active'; } ?>">
         <a href="{{ route('user.dashboard') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Dashboard</div>
@@ -31,8 +31,8 @@
       <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Music Management</span>
       </li>
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link">
+      <li class="menu-item <?php if(Request::segment(2) == 'users') { echo 'active'; } ?>">
+        <a href="{{ route('user.users.get') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bxs-notepad"></i>
           <div data-i18n="Account Settings">Users</div>
         </a>
