@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->dateTime('dob')->nullable()->dufault(null);
+            $table->date('dob')->nullable()->dufault(null);
             $table->enum('gender', ['M', 'F', 'O'])->dufault('M');
             $table->string('address')->nullable()->dufault(null);
             $table->date('first_release_year')->nullable()->dufault(null);
-            $table->integer('no_of_album_release')->dufault(0);
+            $table->unsignedInteger('no_of_album_release')->dufault(0);
             $table->timestamps();
         });
     }

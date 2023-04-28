@@ -37,8 +37,8 @@
           <div data-i18n="Account Settings">Users</div>
         </a>
       </li>
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link">
+      <li class="menu-item <?php if(Request::segment(2) == 'artists') { echo 'active'; } ?>">
+        <a href="{{ route('user.artists.get') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bxs-slideshow"></i>
           <div data-i18n="Authentications">Artist</div>
         </a>

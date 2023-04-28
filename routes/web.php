@@ -7,6 +7,7 @@ use App\Http\Controllers\User\Auth\ForgetPasswordController;
 use App\Http\Controllers\User\Auth\ResetPasswordController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\ArtistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +47,14 @@ Route::prefix('user')->middleware(['auth:web'])->name('user.')->group(function (
 	Route::post('/users/update/{user}', [UserController::class, 'update'])->name('users.update');
 	Route::get('/users/destory/{user}', [UserController::class, 'destory'])->name('users.destory');
 
+	Route::get('/artists', [ArtistController::class, 'index'])->name('artists.get');
+	Route::get('/artists/create/', [ArtistController::class, 'create'])->name('artists.create');
+	Route::post('/artists/store/', [ArtistController::class, 'store'])->name('artists.store');
+	Route::get('/artists/edit/{artist}', [ArtistController::class, 'edit'])->name('artists.edit');
+	Route::post('/artists/update/{artist}', [ArtistController::class, 'update'])->name('artists.update');
+	Route::get('/artists/destory/{artist}', [ArtistController::class, 'destory'])->name('artists.destory');
 
+	Route::get('/artists/{artist}/musics', [ArtistController::class, 'musics'])->name('artists.musics');
 
 
 });

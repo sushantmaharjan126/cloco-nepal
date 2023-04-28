@@ -2,7 +2,7 @@
 
     @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4">@if($user) Edit @else Add @endif User</h4>
+        <h4 class="fw-bold py-3 mb-4">@if(isset($user)) Edit @else Add @endif User</h4>
         <?php
           if(isset($user)) {
             $action = route('user.users.update', ['user' => $user[0]->id]);
