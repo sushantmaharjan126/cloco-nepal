@@ -33,19 +33,19 @@
       </li>
       <li class="menu-item <?php if(Request::segment(2) == 'users') { echo 'active'; } ?>">
         <a href="{{ route('user.users.get') }}" class="menu-link">
-          <i class="menu-icon tf-icons bx bxs-notepad"></i>
+          <i class="menu-icon tf-icons bx bxs-user-circle"></i>
           <div data-i18n="Account Settings">Users</div>
         </a>
       </li>
       <li class="menu-item <?php if(Request::segment(2) == 'artists') { echo 'active'; } ?>">
         <a href="{{ route('user.artists.get') }}" class="menu-link">
-          <i class="menu-icon tf-icons bx bxs-slideshow"></i>
+          <i class="menu-icon tf-icons bx bxs-user"></i>
           <div data-i18n="Authentications">Artist</div>
         </a>
       </li>
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link">
-          <i class="menu-icon tf-icons bx bxs-business"></i>
+      <li class="menu-item <?php if(Request::segment(2) == 'musics') { echo 'active'; } ?>">
+        <a href="{{ route('user.musics.get') }}" class="menu-link">
+          <i class="menu-icon tf-icons bx bxs-music"></i>
           <div data-i18n="Misc">Music</div>
         </a>
       </li>

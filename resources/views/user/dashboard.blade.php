@@ -7,7 +7,7 @@
           <div class="card bg-primary text-white mb-3">
             <div class="card-header">Total Users</div>
             <div class="card-body">
-              <h5 class="card-title text-white">10</h5>
+              <h5 class="card-title text-white">{{ $user }}</h5>
             </div>
           </div>
         </div>
@@ -15,7 +15,7 @@
           <div class="card bg-secondary text-white mb-3">
             <div class="card-header">Total Artist</div>
             <div class="card-body">
-              <h5 class="card-title text-white">10</h5>
+              <h5 class="card-title text-white">{{ $artist }}</h5>
             </div>
           </div>
         </div>
@@ -23,7 +23,7 @@
           <div class="card bg-success text-white mb-3">
             <div class="card-header">Total Musics</div>
             <div class="card-body">
-              <h5 class="card-title text-white">5</h5>
+              <h5 class="card-title text-white">{{ $music }}</h5>
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\User\Auth\ResetPasswordController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\ArtistController;
+use App\Http\Controllers\User\MusicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +56,18 @@ Route::prefix('user')->middleware(['auth:web'])->name('user.')->group(function (
 	Route::get('/artists/destory/{artist}', [ArtistController::class, 'destory'])->name('artists.destory');
 
 	Route::get('/artists/{artist}/musics', [ArtistController::class, 'musics'])->name('artists.musics');
+	Route::post('artists/{artist}/musics', [ArtistController::class, 'storeMusics'])->name('artists.musics.store');
+	Route::get('artists/{artist}/musics/edit/{music}', [ArtistController::class, 'editMusics'])->name('artists.musics.edit');
+	Route::post('artists/{artist}/gallery/edit/{music}', [ArtistController::class, 'updateMusics'])->name('artists.musics.update');
+	Route::get('artists/musics/destory/{id}', [ArtistController::class, 'destroyMusics'])->name('artists.musics.destory');
 
+
+	Route::get('/musics', [MusicController::class, 'index'])->name('musics.get');
+	Route::get('/musics/create/', [MusicController::class, 'create'])->name('musics.create');
+	Route::post('/musics/store/', [MusicController::class, 'store'])->name('musics.store');
+	Route::get('/musics/edit/{music}', [MusicController::class, 'edit'])->name('musics.edit');
+	Route::post('/musics/update/{music}', [MusicController::class, 'update'])->name('musics.update');
+	Route::get('/musics/destory/{music}', [MusicController::class, 'destory'])->name('musics.destory');
 
 });
 

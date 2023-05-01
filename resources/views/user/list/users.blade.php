@@ -44,9 +44,10 @@
                         <td>
                             
                             <a href="{{ route('user.users.edit', ['user' => $user->id]) }}" title="Edit"><i class="bx bx-edit-alt me-1"></i></a>
-                            <a href="{{ route('user.users.destory', ['user' => $user->id]) }}" title="Delete"><i class="bx bx-trash me-1"></i></a>
+                            <a onclick="return confirm('Are you sure you want to delete?')" href="{{ route('user.users.destory', ['user' => $user->id]) }}" title="Delete"><i class="bx bx-trash me-1"></i></a>
                         </td>
                         </tr>
+                        <?php $z++; ?>
                     @endforeach
                   </tbody>
                 </table>

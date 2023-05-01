@@ -41,12 +41,13 @@
                         <td>{{ $artist->no_of_album_release }}</td>
                         <td>
                           <a title="Itinerary" href="{{route('user.artists.musics', ['artist' => $artist->id])}}" class="border-0 btn-transition btn btn-outline-info">
-                            <i class="fa fa-list"></i>
+                            <i class="bx bx-music me-1"></i>
                           </a>
                             <a href="{{ route('user.artists.edit', ['artist' => $artist->id]) }}" title="Edit"><i class="bx bx-edit-alt me-1"></i></a>
-                            <a href="{{ route('user.artists.destory', ['artist' => $artist->id]) }}" title="Delete"><i class="bx bx-trash me-1"></i></a>
+                            <a onclick="return confirm('Are you sure you want to delete?')" href="{{ route('user.artists.destory', ['artist' => $artist->id]) }}" title="Delete"><i class="bx bx-trash me-1"></i></a>
                         </td>
                         </tr>
+                        <?php $z++; ?>
                     @endforeach
                   </tbody>
                 </table>
