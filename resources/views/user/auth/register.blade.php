@@ -1,5 +1,5 @@
 @extends('user.auth.layout.app')
-@section('title')Admin | Login @endsection
+@section('title')User | Register @endsection
 
 
     @section('content')

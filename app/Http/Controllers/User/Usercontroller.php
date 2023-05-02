@@ -97,22 +97,24 @@ class Usercontroller extends Controller
         // validate if password exists
         if (request('password') != null) {
             $pass = (['password' => request('password')]);
+
+            $v = Validator::make($pass, [
+                'password' => 'min:8'
+            ]);
+    
+            if ($v->fails()) {
+                return redirect()->back()->withErrors($v)->withInput();
+            } else {
+                $data = bcrypt(request('password'));
+                // $password = $data;
+                DB::update('UPDATE users SET password = ? WHERE id = ?', [$data, $id]);
+            }
             
         } else {
             $pass = ([]);
         }
-
-        $v = Validator::make($pass, [
-            'password' => 'min:8'
-        ]);
-
-        if ($v->fails()) {
-            return redirect()->back()->withErrors($v)->withInput();
-        } else {
-            $data = bcrypt(request('password'));
-            // $password = $data;
-            DB::update('UPDATE users SET password = ? WHERE id = ?', [$data, $id]);
-        }
+        
+        
         // validate if password exists
 
         $first_name = request('first_name');

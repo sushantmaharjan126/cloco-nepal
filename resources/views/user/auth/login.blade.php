@@ -1,5 +1,5 @@
 @extends('user.auth.layout.app')
-@section('title')Admin | Login @endsection
+@section('title')User | Login @endsection
 
 
     @section('content')
@@ -16,7 +16,7 @@
                     
                     </div>
                     <!-- /Logo -->
-                    
+                    @include('user.layout.alert')
 
                     <form id="formAuthentication" class="mb-3" action="{{ url('user/login') }}" method="POST">
                         @csrf

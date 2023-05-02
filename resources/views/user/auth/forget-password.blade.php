@@ -1,5 +1,5 @@
 @extends('user.auth.layout.app')
-@section('title')Admin | Forget Password @endsection
+@section('title')User | Forget Password @endsection
 
 
     @section('content')

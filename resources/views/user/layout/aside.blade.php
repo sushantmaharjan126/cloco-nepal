@@ -22,7 +22,7 @@
 
       <!-- Layouts -->
       <li class="menu-item">
-        <a href="{{ url('/') }}" class="menu-link">
+        <a href="{{ url('/') }}" target="_blank" class="menu-link">
           <i class="menu-icon tf-icons bx bx-layout"></i>
           <div data-i18n="Layouts">Visit Website</div>
         </a>
