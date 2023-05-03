@@ -8,7 +8,15 @@
             <div class="title-section d-flex mt-3 align-items-center">
                 <h5 class="text-uppercase mb-0 pr-2">Artist List</h5>
                 <a href="{{ route('user.artists.create') }}" class="btn btn-primary text-uppercase" style="margin-left:30px;">Add Artist</a>
-     
+                <a href="{{ route('user.artists.download.csv-file') }}" class="btn btn-primary text-uppercase" style="margin-left:30px;">Download CSV File</a>
+                {{-- <a href="{{ route('user.artists.download.csv-file') }}" class="btn btn-primary text-uppercase" style="margin-left:30px;">Upload CSV File</a> --}}
+                <form method="POST" action="{{ route('user.artists.upload.csv-file') }}" id="form-csv" enctype="multipart/form-data">
+                  @csrf
+                  <label for="file" id="custom-button" class="btn btn-primary text-uppercase" style="margin-left:30px;">Upload CSV File</label>
+                  <input type="file" name="file" id="file" style="display: none;">
+                  {{-- <button type="submit">Submit</button> --}}
+                </form>
+
               </div>
               @include('user.layout.alert')
             <div class="card-body">
@@ -59,4 +67,14 @@
           </div>
           <!--/ Bordered Table -->
 
+    @endsection
+
+    @section('footer')
+      <script>
+        $(document).ready(function() {
+          $("#file").change(function () {
+            $("#form-csv").submit();
+          });
+        });
+      </script>
     @endsection

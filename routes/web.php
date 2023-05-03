@@ -54,6 +54,8 @@ Route::prefix('user')->middleware(['auth:web'])->name('user.')->group(function (
 	Route::get('/artists/edit/{artist}', [ArtistController::class, 'edit'])->name('artists.edit');
 	Route::post('/artists/update/{artist}', [ArtistController::class, 'update'])->name('artists.update');
 	Route::get('/artists/destory/{artist}', [ArtistController::class, 'destory'])->name('artists.destory');
+	Route::get('/artists/download/csv-file', [ArtistController::class, 'csvDownload'])->name('artists.download.csv-file');
+	Route::post('/artists/upload/csv-file', [ArtistController::class, 'csvUpload'])->name('artists.upload.csv-file');
 
 	Route::get('/artists/{artist}/musics', [ArtistController::class, 'musics'])->name('artists.musics');
 	Route::post('artists/{artist}/musics', [ArtistController::class, 'storeMusics'])->name('artists.musics.store');

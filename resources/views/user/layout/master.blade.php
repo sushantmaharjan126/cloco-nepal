@@ -33,6 +33,8 @@
 
   <!-- Page CSS -->
   <!-- Page -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="{{ asset('administrator/assets/vendor/css/pages/page-auth.css') }}" />
   <!-- Helpers -->
   <script src="{{ asset('administrator/assets/vendor/js/helpers.js') }}"></script>
@@ -75,8 +77,6 @@
                 <script>
                   document.write(new Date().getFullYear());
                 </script>
-                , made with ❤️ by
-                <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
               </div>
               
             </div>
@@ -114,6 +114,7 @@
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+  @yield('footer')
 </body>
 
 </html>

@@ -109,6 +109,70 @@ class ArtistController extends Controller
         }
     }
 
+    public function csvUpload(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:csv',
+        ]);
+
+        $file = $request->file('file');
+        if ($file != null) {
+
+            $uploadDocument = 'cvs-file-'.time(). '.' .$file->getClientOriginalExtension();
+            $destinationPath = 'uploads/artists';
+            $file->move($destinationPath, $uploadDocument);
+
+            $file_uploaded = public_path('uploads/artists/'.$uploadDocument);
+
+            $handle = fopen($file_uploaded, 'r');
+
+            $header = fgetcsv($handle);
+
+            $data = [];
+            $i = 0;
+            while (($row = fgetcsv($handle)) !== false) {
+                $data[] = array_combine(['name', 'dob', 'gender', 'address', 'first_release_year', 'no_of_album_release'], $row);
+
+                $name = $data[$i]['name'];
+                $dob = $data[$i]['dob'];
+                $gender = $data[$i]['gender'];
+                $address = $data[$i]['address'];
+                $first_release_year = $data[$i]['first_release_year'];
+                $no_of_album_release = $data[$i]['no_of_album_release'];
+
+                $sql = "INSERT INTO artists (name, address, dob, gender, first_release_year, no_of_album_release) VALUES (?, ?, ?, ?, ?, ?)";
+                $params = [$name, $address, $dob, $gender, $first_release_year, $no_of_album_release];
+                $success = DB::insert($sql, $params);
+
+                $i++;
+            }
+
+            fclose($handle);
+
+            // dd($data);
+            return redirect()->back()->with('success_message', 'CVS file uploaded Successfully.');
+
+        }
+    }
+
+    public function csvDownload()
+    {
+        $artists = DB::select("SELECT * FROM artists ");
+
+        // Generate the CSV file data
+        $csvData = "Name,DOB,Gender,Address,First Year Release,No of Album\n";
+        foreach ($artists as $row) {
+            
+            $csvData .= "{$row->name},{$row->dob},{$row->gender},{$row->address},{$row->first_release_year},{$row->no_of_album_release}\n";
+        }
+
+        // Return the CSV file as a download
+        return response($csvData)
+        ->header('Content-Type', 'text/csv')
+        ->header('Content-Disposition', 'attachment; filename="Artists.csv"');
+    
+    }
+
     public function musics($artist_id)
     {
         $artist = DB::select("SELECT * FROM artists WHERE id = $artist_id");
